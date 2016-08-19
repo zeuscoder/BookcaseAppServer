@@ -1,6 +1,7 @@
 package cn.zeus.bookcase.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IndexController {
 
-    @RequestMapping("")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     String home() {
         return "Welcome to Bookcase!";
     }
 
-    @RequestMapping("app")
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     String app() {
         return "Bookcase update!";
     }
