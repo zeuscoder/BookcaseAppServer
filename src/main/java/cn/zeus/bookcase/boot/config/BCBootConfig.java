@@ -1,4 +1,4 @@
-package cn.zeus.bookcase;
+package cn.zeus.bookcase.boot.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;

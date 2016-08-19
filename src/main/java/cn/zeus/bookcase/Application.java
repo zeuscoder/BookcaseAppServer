@@ -1,5 +1,6 @@
 package cn.zeus.bookcase;
 
+import cn.zeus.bookcase.boot.config.BCBootConfig;
 import org.springframework.boot.SpringApplication;
 
 /**

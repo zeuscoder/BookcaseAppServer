@@ -134,5 +134,28 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- 测试集成部署 -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>src/main/filters/dev/application.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>pro</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/pro/application.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
     
 </project>
