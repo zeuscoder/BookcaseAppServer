@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by lvzimou on 16-8-22.
  */
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/center/account")
 public class UserController {
 
     Logger LOG = LoggerFactory.getLogger(UserController.class);
