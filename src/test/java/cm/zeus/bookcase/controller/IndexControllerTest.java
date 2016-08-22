@@ -1,6 +1,6 @@
 package cm.zeus.bookcase.controller;
 
-import cn.zeus.bookcase.controller.IndexController;
+import cn.zeus.bookcase.IndexController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

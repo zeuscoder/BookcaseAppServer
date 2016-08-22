@@ -1,4 +1,4 @@
-package cn.zeus.bookcase.controller;
+package cn.zeus.bookcase;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
