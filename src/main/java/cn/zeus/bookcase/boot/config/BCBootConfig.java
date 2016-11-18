@@ -1,6 +1,6 @@
 package cn.zeus.bookcase.boot.config;
 
-import cn.zeus.bookcase.filter.CORSFilter;
+import cn.zeus.bookcase.web.filter.CORSFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import org.apache.ibatis.session.SqlSession;

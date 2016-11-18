@@ -1,4 +1,4 @@
-package cn.zeus.bookcase.filter;
+package cn.zeus.bookcase.web.interceptor;
 
 import cn.zeus.bookcase.common.ErrorNum;
 

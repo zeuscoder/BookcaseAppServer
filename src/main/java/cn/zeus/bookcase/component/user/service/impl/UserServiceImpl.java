@@ -1,8 +1,8 @@
-package cn.zeus.bookcase.modules.user.service.impl;
+package cn.zeus.bookcase.component.user.service.impl;
 
-import cn.zeus.bookcase.modules.user.dao.AccountDao;
-import cn.zeus.bookcase.modules.user.entity.Account;
-import cn.zeus.bookcase.modules.user.service.UserService;
+import cn.zeus.bookcase.component.user.dao.AccountDao;
+import cn.zeus.bookcase.component.user.entity.Account;
+import cn.zeus.bookcase.component.user.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

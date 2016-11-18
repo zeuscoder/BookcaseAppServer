@@ -2,7 +2,7 @@ package cn.zeus.bookcase.common.exception;
 
 import cn.zeus.bookcase.common.BaseResponse;
 import cn.zeus.bookcase.common.ErrorNum;
-import cn.zeus.bookcase.filter.AccessTokenException;
+import cn.zeus.bookcase.web.interceptor.AccessTokenException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

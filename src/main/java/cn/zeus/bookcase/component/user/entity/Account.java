@@ -1,4 +1,4 @@
-package cn.zeus.bookcase.modules.user.entity;
+package cn.zeus.bookcase.component.user.entity;
 
 /**
  * Created by lvzimou on 16-8-22.
@@ -6,8 +6,11 @@ package cn.zeus.bookcase.modules.user.entity;
 public class Account {
 
     private int id;
+
     private String name;
+
     private String pwd;
+
     private String token;
 
     public int getId() {

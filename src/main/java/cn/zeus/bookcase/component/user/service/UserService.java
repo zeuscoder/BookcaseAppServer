@@ -1,6 +1,6 @@
-package cn.zeus.bookcase.modules.user.service;
+package cn.zeus.bookcase.component.user.service;
 
-import cn.zeus.bookcase.modules.user.entity.Account;
+import cn.zeus.bookcase.component.user.entity.Account;
 
 /**
  * Created by lvzimou on 16-8-22.

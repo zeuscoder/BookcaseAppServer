@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mybatis 映射文件 -->
-<mapper namespace="cn.zeus.bookcase.modules.user.dao.AccountDao">
+<mapper namespace="cn.zeus.bookcase.component.user.dao.AccountDao">
 
-    <select id="findAccount" parameterType="String" resultType="cn.zeus.bookcase.modules.user.entity.Account">
+    <select id="findAccount" parameterType="String" resultType="cn.zeus.bookcase.component.user.entity.Account">
         select
         id as id,
         name as name,
@@ -12,7 +12,7 @@
         where name = #{name} limit 1
     </select>
 
-    <select id="findById" parameterType="int" resultType="cn.zeus.bookcase.modules.user.entity.Account">
+    <select id="findById" parameterType="int" resultType="cn.zeus.bookcase.component.user.entity.Account">
         select
         id as id,
         name as name,

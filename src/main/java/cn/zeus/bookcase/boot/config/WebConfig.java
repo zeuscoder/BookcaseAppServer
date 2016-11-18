@@ -1,6 +1,6 @@
 package cn.zeus.bookcase.boot.config;
 
-import cn.zeus.bookcase.filter.AccessTokenCheckInterceptor;
+import cn.zeus.bookcase.web.interceptor.AccessTokenCheckInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

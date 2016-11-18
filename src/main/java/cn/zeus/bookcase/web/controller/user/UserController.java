@@ -1,15 +1,14 @@
-package cn.zeus.bookcase.modules.user.controller;
+package cn.zeus.bookcase.web.controller.user;
 
 import cn.zeus.bookcase.common.BaseResponse;
 import cn.zeus.bookcase.common.exception.BusinessException;
-import cn.zeus.bookcase.modules.user.entity.Account;
-import cn.zeus.bookcase.modules.user.service.UserService;
+import cn.zeus.bookcase.component.user.entity.Account;
+import cn.zeus.bookcase.component.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

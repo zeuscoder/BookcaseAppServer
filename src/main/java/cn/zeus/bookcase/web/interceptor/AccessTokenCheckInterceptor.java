@@ -1,4 +1,4 @@
-package cn.zeus.bookcase.filter;
+package cn.zeus.bookcase.web.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

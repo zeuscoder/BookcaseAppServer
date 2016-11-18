@@ -1,4 +1,4 @@
-package cn.zeus.bookcase.filter;
+package cn.zeus.bookcase.web.filter;
 
 import org.springframework.stereotype.Component;
 
