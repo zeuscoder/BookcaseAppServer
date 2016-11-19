@@ -48,7 +48,7 @@ public class BCBootConfig {
     private static final String DURID_MONITOR_PATH = "/duridmonitor/*";
 
     //MyBait sql文件
-    private static final String MY_BAITS_MAPPER_PATH = "classpath*:mapper/**.xml";
+    private static final String MY_BAITS_MAPPER_PATH = "classpath*:mapper/**/**.xml";
 
     @Autowired
     private DataSourceProperties dataSourceProperties;

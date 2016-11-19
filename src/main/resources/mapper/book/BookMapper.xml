@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zeus.bookcase.component.book.dao.BookDao">
+
+    <sql id="bookCommonFields">
+        book_id as bookId,
+        title,
+        authors,
+        category,
+        image,
+        isbn,
+        pages,
+        number,
+        price,
+        pub_date as publishDate,
+        publisher,
+        rating,
+        summary
+    </sql>
+
+    <!-- 分页组件 -->
+    <sql id="pageInfoFilterSql">
+        <if test="pageOffset != null and pageSize != null">
+            LIMIT ${pageOffset},${pageSize}
+        </if>
+    </sql>
+
+    <!-- 统计商户列表记录 -->
+    <select id="countBooksByParams"
+            parameterType="cn.zeus.bookcase.component.book.vo.req.BookReq"
+            resultType="int">
+        select
+        count(*)
+        from book
+        <include refid="filterSql" />
+    </select>
+
+
+    <!-- 查询商户列表 -->
+    <select id="selectBooksByParams"
+            resultType="cn.zeus.bookcase.component.book.entity.Book"
+            parameterType="cn.zeus.bookcase.component.book.vo.req.BookReq">
+        select
+        <include refid="bookCommonFields" />
+        from book
+        <include refid="filterSql" />
+        <include refid="pageInfoFilterSql" />
+    </select>
+
+    <!-- 过滤条件 -->
+    <sql id="filterSql">
+        <where>
+            <if test="title!=null">
+                and title like concat('%',#{title},'%')
+            </if>
+        </where>
+    </sql>
+
+</mapper>

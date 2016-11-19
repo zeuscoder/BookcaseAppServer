@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by lvzimou on 16-8-22.
  */
-@Repository("accountDao")
+@Repository("AccountDao")
 public class AccountDao {
 
     private static final String NAMESPACE_USER = "cn.zeus.bookcase.component.user.dao.AccountDao.";

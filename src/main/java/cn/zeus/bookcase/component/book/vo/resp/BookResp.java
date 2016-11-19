@@ -1,11 +1,14 @@
-package cn.zeus.bookcase.component.book.entity;
+package cn.zeus.bookcase.component.book.vo.resp;
+
+import cn.zeus.bookcase.component.book.entity.Book;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 书籍
- *
- * Created by lvzimou on 2016/11/19.
+ * Created by lvzimou on 16-11-19.
  */
-public class Book {
+public class BookResp {
 
     private int bookId;
 
@@ -13,13 +16,7 @@ public class Book {
 
     private String authors;
 
-    private String category;
-
-    private String image;
-
     private String isbn;
-
-    private int pages;
 
     private int number;
 
@@ -29,12 +26,19 @@ public class Book {
 
     private String publisher;
 
-    private String rating;
+    public BookResp() {
 
-    private String summary;
+    }
 
-    public Book() {
-
+    public BookResp(Book book) {
+        this.bookId = book.getBookId();
+        this.title = book.getTitle();
+        this.authors = book.getAuthors();
+        this.isbn = book.getIsbn();
+        this.number = book.getNumber();
+        this.price = book.getPrice();
+        this.publishDate = book.getPublishDate();
+        this.publisher = book.getPublisher();
     }
 
     public int getBookId() {
@@ -61,36 +65,12 @@ public class Book {
         this.authors = authors;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public String getIsbn() {
         return isbn;
     }
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
-    }
-
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
     }
 
     public int getNumber() {
@@ -125,20 +105,13 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public String getRating() {
-        return rating;
+    public static List<BookResp> fetchBooks(List<Book> books) {
+        List<BookResp> bookResps = new ArrayList<BookResp>();
+        if (books != null && !books.isEmpty()) {
+            for (Book book: books) {
+                bookResps.add(new BookResp(book));
+            }
+        }
+        return bookResps;
     }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
 }
