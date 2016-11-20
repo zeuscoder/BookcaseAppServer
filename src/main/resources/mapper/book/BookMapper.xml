@@ -25,7 +25,7 @@
         </if>
     </sql>
 
-    <!-- 统计商户列表记录 -->
+    <!-- 统计书籍列表记录 -->
     <select id="countBooksByParams"
             parameterType="cn.zeus.bookcase.component.book.vo.req.BookReq"
             resultType="int">
@@ -36,7 +36,7 @@
     </select>
 
 
-    <!-- 查询商户列表 -->
+    <!-- 查询书籍列表 -->
     <select id="selectBooksByParams"
             resultType="cn.zeus.bookcase.component.book.entity.Book"
             parameterType="cn.zeus.bookcase.component.book.vo.req.BookReq">
@@ -50,8 +50,17 @@
     <!-- 过滤条件 -->
     <sql id="filterSql">
         <where>
-            <if test="title!=null">
+            <if test="category!=null and category!=0">
+                and category = #{category}
+            </if>
+            <if test="title!=null and title!=''">
                 and title like concat('%',#{title},'%')
+            </if>
+            <if test="authors!=null and authors!=''">
+                and authors like concat('%',#{authors},'%')
+            </if>
+            <if test="isbn!=null and isbn!=''">
+                and isbn like concat('%',#{isbn},'%')
             </if>
         </where>
     </sql>

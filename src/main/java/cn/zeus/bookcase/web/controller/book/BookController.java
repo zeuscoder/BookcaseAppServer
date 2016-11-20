@@ -32,10 +32,13 @@ public class BookController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public BaseResponse<List<BookResp>> fetchBooks(
             @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "authors", required = false) String authors,
+            @RequestParam(value = "isbn", required = false) String isbn,
+            @RequestParam(value = "category", required = false) Integer category,
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         LOG.info("[书籍列表] - 访问[GET /books]接口, reqParams title = " + title);
-        BookReq filterParams = new BookReq(title, page, pageSize);
+        BookReq filterParams = new BookReq(title, authors, isbn, category, page, pageSize);
         BaseResponse<List<BookResp>> br = new BaseResponse<List<BookResp>>();
         br.setData(bookService.fetchBooks(filterParams));
         br.setTotal(bookService.countBooks(filterParams));

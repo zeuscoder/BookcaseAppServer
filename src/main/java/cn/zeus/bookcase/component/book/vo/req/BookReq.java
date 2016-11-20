@@ -9,13 +9,26 @@ public class BookReq {
 
     private String title;
 
+    private String authors;
+
+    private String isbn;
+
+    private Integer category;
+
     private Integer pageOffset;
 
     private Integer pageSize;
 
-    public BookReq(String title, Integer page, Integer pageSize) {
-        super();
+    public BookReq() {
+
+    }
+
+    public BookReq(String title, String authors, String isbn,
+                   Integer category, Integer page, Integer pageSize) {
         this.title = title;
+        this.authors = authors;
+        this.isbn = isbn;
+        this.category = category;
         PageInfo pageInfo = PageInfo.getPageInfo(page, pageSize);
         this.pageOffset = pageInfo.getPageOffset();
         this.pageSize = pageInfo.getPageSize();
@@ -27,6 +40,30 @@ public class BookReq {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Integer getCategory() {
+        return category;
+    }
+
+    public void setCategory(Integer category) {
+        this.category = category;
     }
 
     public Integer getPageOffset() {
