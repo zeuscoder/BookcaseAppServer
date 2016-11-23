@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zeus.bookcase.component.zone.dao.ZoneDao">
+
+    <sql id="zoneCommonFields">
+        zone_id as zoneId,
+        zone_code as zoneCode,
+        zone_name as zoneName,
+        parent_code as parentCode,
+        parent_name as parentName
+    </sql>
+
+    <!-- 分页组件 -->
+    <sql id="pageInfoFilterSql">
+        <if test="pageOffset != null and pageSize != null">
+            LIMIT ${pageOffset},${pageSize}
+        </if>
+    </sql>
+
+    <!-- 查询书籍类型列表 -->
+    <select id="selectZones"
+            resultType="cn.zeus.bookcase.component.zone.entity.Zone"
+            parameterType="cn.zeus.bookcase.component.zone.vo.req.ZoneReq">
+        select
+        <include refid="zoneCommonFields" />
+        from zone
+        <include refid="filterSql" />
+        <include refid="pageInfoFilterSql" />
+    </select>
+
+    <!-- 过滤条件 -->
+    <sql id="filterSql">
+        <where>
+            <if test="parentCode!=null and parentCode!='0'">
+                and parent_code = #{parentCode}
+            </if>
+            <if test="parentCode==null or parentCode=='0'">
+                and parent_code = 0
+            </if>
+        </where>
+    </sql>
+
+</mapper>
