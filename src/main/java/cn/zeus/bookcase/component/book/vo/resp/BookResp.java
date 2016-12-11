@@ -26,6 +26,12 @@ public class BookResp {
 
     private String publisher;
 
+    private int pages;
+
+    private String rating;
+
+    private String summary;
+
     public BookResp() {
 
     }
@@ -39,6 +45,9 @@ public class BookResp {
         this.price = book.getPrice();
         this.publishDate = book.getPublishDate();
         this.publisher = book.getPublisher();
+        this.pages = book.getPages();
+        this.rating = book.getRating();
+        this.summary = book.getSummary();
     }
 
     public int getBookId() {
@@ -103,6 +112,30 @@ public class BookResp {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public static List<BookResp> fetchBooks(List<Book> books) {
