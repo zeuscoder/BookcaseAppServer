@@ -15,6 +15,12 @@ public class BookReq {
 
     private Integer category;
 
+    private Integer state;
+
+    private String publishStartDate;
+
+    private String publishEndDate;
+
     private Integer pageOffset;
 
     private Integer pageSize;
@@ -24,11 +30,15 @@ public class BookReq {
     }
 
     public BookReq(String title, String authors, String isbn,
-                   Integer category, Integer page, Integer pageSize) {
+                   Integer category, Integer state, String publishStartDate,
+                   String publishEndDate, Integer page, Integer pageSize) {
         this.title = title;
         this.authors = authors;
         this.isbn = isbn;
         this.category = category;
+        this.state = state;
+        this.publishStartDate = publishStartDate;
+        this.publishEndDate = publishEndDate;
         PageInfo pageInfo = PageInfo.getPageInfo(page, pageSize);
         this.pageOffset = pageInfo.getPageOffset();
         this.pageSize = pageInfo.getPageSize();
@@ -64,6 +74,30 @@ public class BookReq {
 
     public void setCategory(Integer category) {
         this.category = category;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getPublishStartDate() {
+        return publishStartDate;
+    }
+
+    public void setPublishStartDate(String publishStartDate) {
+        this.publishStartDate = publishStartDate;
+    }
+
+    public String getPublishEndDate() {
+        return publishEndDate;
+    }
+
+    public void setPublishEndDate(String publishEndDate) {
+        this.publishEndDate = publishEndDate;
     }
 
     public Integer getPageOffset() {

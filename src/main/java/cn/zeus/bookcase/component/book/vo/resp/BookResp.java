@@ -1,5 +1,6 @@
 package cn.zeus.bookcase.component.book.vo.resp;
 
+import cn.zeus.bookcase.component.book.constant.BookState;
 import cn.zeus.bookcase.component.book.entity.Book;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class BookResp {
 
     private int number;
 
-    private int price;
+    private double price;
 
     private String publishDate;
 
@@ -31,6 +32,8 @@ public class BookResp {
     private String rating;
 
     private String summary;
+
+    private String state;
 
     public BookResp() {
 
@@ -48,6 +51,7 @@ public class BookResp {
         this.pages = book.getPages();
         this.rating = book.getRating();
         this.summary = book.getSummary();
+        this.state = BookState.getBookStateByDbType(book.getState()).getEnName();
     }
 
     public int getBookId() {
@@ -90,11 +94,11 @@ public class BookResp {
         this.number = number;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -136,6 +140,14 @@ public class BookResp {
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public static List<BookResp> fetchBooks(List<Book> books) {

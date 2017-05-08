@@ -1,11 +1,11 @@
-package cn.zeus.bookcase.component.book.entity;
+package cn.zeus.bookcase.component.book.vo;
+
+import cn.zeus.bookcase.component.book.entity.Book;
 
 /**
- * 书籍
- *
- * Created by lvzimou on 2016/11/19.
+ * Created by ajb on 17-5-8.
  */
-public class Book {
+public class BookInfoVo {
 
     private int bookId;
 
@@ -13,13 +13,7 @@ public class Book {
 
     private String authors;
 
-    private String category;
-
-    private String image;
-
     private String isbn;
-
-    private int pages;
 
     private int number;
 
@@ -29,11 +23,13 @@ public class Book {
 
     private String publisher;
 
+    private int pages;
+
     private String rating;
 
     private String summary;
 
-    private int state;
+    private String image;
 
     private String saleAgent;
 
@@ -41,11 +37,28 @@ public class Book {
 
     private double saleDiscount;
 
-    private int saleNumber;
-
     private String remark;
 
-    public Book() {
+    public BookInfoVo(Book book) {
+        this.bookId = book.getBookId();
+        this.title = book.getTitle();
+        this.authors = book.getAuthors();
+        this.isbn = book.getIsbn();
+        this.number = book.getNumber();
+        this.price = book.getPrice();
+        this.publishDate = book.getPublishDate();
+        this.publisher = book.getPublisher();
+        this.pages = book.getPages();
+        this.rating = book.getRating();
+        this.summary = book.getSummary();
+        this.image = book.getImage();
+        this.saleAgent = book.getSaleAgent();
+        this.salePrice = book.getSalePrice();
+        this.saleDiscount = book.getSaleDiscount();
+        this.remark = book.getRemark();
+    }
+
+    public BookInfoVo() {
 
     }
 
@@ -73,36 +86,12 @@ public class Book {
         this.authors = authors;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public String getIsbn() {
         return isbn;
     }
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
-    }
-
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
     }
 
     public int getNumber() {
@@ -137,6 +126,14 @@ public class Book {
         this.publisher = publisher;
     }
 
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
     public String getRating() {
         return rating;
     }
@@ -153,12 +150,12 @@ public class Book {
         this.summary = summary;
     }
 
-    public int getState() {
-        return state;
+    public String getImage() {
+        return image;
     }
 
-    public void setState(int state) {
-        this.state = state;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getSaleAgent() {
@@ -185,14 +182,6 @@ public class Book {
         this.saleDiscount = saleDiscount;
     }
 
-    public int getSaleNumber() {
-        return saleNumber;
-    }
-
-    public void setSaleNumber(int saleNumber) {
-        this.saleNumber = saleNumber;
-    }
-
     public String getRemark() {
         return remark;
     }
@@ -200,4 +189,5 @@ public class Book {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
 }

@@ -1,6 +1,7 @@
 package cn.zeus.bookcase.component.book.service;
 
 import cn.zeus.bookcase.component.book.dao.BookDao;
+import cn.zeus.bookcase.component.book.vo.BookInfoVo;
 import cn.zeus.bookcase.component.book.vo.req.BookReq;
 import cn.zeus.bookcase.component.book.vo.resp.BookResp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,24 @@ public class BookService {
      */
     public List<BookResp> fetchBooks(BookReq filterParams) {
         return BookResp.fetchBooks(bookDao.selectBooksByParams(filterParams));
+    }
+
+    /**
+     * 查找书籍
+     *
+     * @param bookId
+     * @return
+     */
+    public BookInfoVo fetchBookInfo(int bookId) {
+        return new BookInfoVo(bookDao.selectBookById(bookId));
+    }
+
+    /**
+     *修改书籍
+     *
+     * @param bookInfoVo
+     */
+    public void setBookInfo(BookInfoVo bookInfoVo) {
+        bookDao.updateBook(bookInfoVo);
     }
 }

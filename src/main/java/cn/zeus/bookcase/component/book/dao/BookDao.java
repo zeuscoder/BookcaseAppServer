@@ -1,6 +1,7 @@
 package cn.zeus.bookcase.component.book.dao;
 
 import cn.zeus.bookcase.component.book.entity.Book;
+import cn.zeus.bookcase.component.book.vo.BookInfoVo;
 import cn.zeus.bookcase.component.book.vo.req.BookReq;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,24 @@ public class BookDao {
      */
     public List<Book> selectBooksByParams(BookReq filterParams) {
         return sqlSession.selectList(NAMESPACE + "selectBooksByParams", filterParams);
+    }
+
+    /**
+     * 通过ID寻找书籍信息
+     *
+     * @param bookId
+     * @return
+     */
+    public Book selectBookById(int bookId) {
+        return sqlSession.selectOne(NAMESPACE + "selectBookById", bookId);
+    }
+
+    /**
+     * 修改书籍信息
+     *
+     * @param bookInfoVo
+     */
+    public void updateBook(BookInfoVo bookInfoVo) {
+        sqlSession.update(NAMESPACE + "updateBook", bookInfoVo);
     }
 }

@@ -15,7 +15,13 @@
         pub_date as publishDate,
         publisher,
         rating,
-        summary
+        summary,
+        state,
+        sale_agent as saleAgent,
+        sale_price as salePrice,
+        sale_discount as saleDiscount,
+        sale_number as saleNumber,
+        remark
     </sql>
 
     <!-- 分页组件 -->
@@ -47,11 +53,42 @@
         <include refid="pageInfoFilterSql" />
     </select>
 
+    <!-- 查找书籍 -->
+    <select id="selectBookById"
+            resultType="cn.zeus.bookcase.component.book.entity.Book"
+            parameterType="java.lang.Integer">
+        select
+        <include refid="bookCommonFields" />
+        from book
+        where book_id = #{bookId}
+    </select>
+
+    <select id="updateBook"
+            parameterType="cn.zeus.bookcase.component.book.vo.BookInfoVo">
+       update book
+        set title = #{title},
+        authors = #{authors},
+        image = #{image},
+        isbn = #{isbn},
+        number = #{number},
+        pub_date = #{publishDate},
+        publisher = #{publisher},
+        summary = #{summary},
+        sale_agent = #{saleAgent},
+        sale_price = #{salePrice},
+        sale_discount = #{saleDiscount},
+        remark = #{remark}
+        where book_id = #{bookId}
+    </select>
+
     <!-- 过滤条件 -->
     <sql id="filterSql">
         <where>
             <if test="category!=null and category!=0">
                 and category = #{category}
+            </if>
+            <if test="state!=null and state!=-1">
+                and state = #{state}
             </if>
             <if test="title!=null and title!=''">
                 and title like concat('%',#{title},'%')
@@ -61,6 +98,12 @@
             </if>
             <if test="isbn!=null and isbn!=''">
                 and isbn like concat('%',#{isbn},'%')
+            </if>
+            <if test="publishStartDate!=null and publishStartDate!=''">
+                and pub_date &gt;= #{publishStartDate}
+            </if>
+            <if test="publishEndDate!=null and publishEndDate!=''">
+                and pub_date &lt;= #{publishEndDate}
             </if>
         </where>
     </sql>
