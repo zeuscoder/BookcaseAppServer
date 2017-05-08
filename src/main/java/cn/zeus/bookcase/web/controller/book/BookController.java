@@ -73,6 +73,16 @@ public class BookController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/{bookId:\\d+}", method = RequestMethod.DELETE)
+    public BaseResponse<String> deleteBook(@PathVariable("bookId") int bookId) {
+        LOG.info("[删除书籍] - 访问[DELETE /book/" + bookId + "]接口");
+        BaseResponse<String> br = new BaseResponse<String>();
+        bookService.deleteBook(bookId);
+        br.setMessage("删除成功");
+        return br;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "", method = RequestMethod.POST)
     public BaseResponse<String> saveBook(@RequestBody BookVo bookVo) {
         LOG.info("[添加书籍] - 访问[POST /book]接口");

@@ -59,4 +59,13 @@ public class BookDao {
     public void updateBook(BookInfoVo bookInfoVo) {
         sqlSession.update(NAMESPACE + "updateBook", bookInfoVo);
     }
+
+    /**
+     * 删除书籍
+     *
+     * @param bookId
+     */
+    public void deleteBook(int bookId) {
+        sqlSession.update(NAMESPACE + "deleteBook", bookId);
+    }
 }

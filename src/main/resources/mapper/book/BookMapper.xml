@@ -63,6 +63,7 @@
         where book_id = #{bookId}
     </select>
 
+    <!-- 修改书籍 -->
     <select id="updateBook"
             parameterType="cn.zeus.bookcase.component.book.vo.BookInfoVo">
        update book
@@ -81,6 +82,14 @@
         where book_id = #{bookId}
     </select>
 
+    <!-- 删除书籍 -->
+    <select id="deleteBook"
+            parameterType="java.lang.Integer">
+        update book
+        set state = 4 <!-- 4: 表示删除 -->
+        where book_id = #{bookId}
+    </select>
+
     <!-- 过滤条件 -->
     <sql id="filterSql">
         <where>
@@ -89,6 +98,9 @@
             </if>
             <if test="state!=null and state!=-1">
                 and state = #{state}
+            </if>
+            <if test="state==null or state==-1">
+                and state != 4
             </if>
             <if test="title!=null and title!=''">
                 and title like concat('%',#{title},'%')

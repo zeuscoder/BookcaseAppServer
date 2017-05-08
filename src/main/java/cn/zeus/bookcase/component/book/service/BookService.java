@@ -49,11 +49,20 @@ public class BookService {
     }
 
     /**
-     *修改书籍
+     * 修改书籍
      *
      * @param bookInfoVo
      */
     public void setBookInfo(BookInfoVo bookInfoVo) {
         bookDao.updateBook(bookInfoVo);
+    }
+
+    /**
+     * 删除书籍
+     *
+     * @param bookId
+     */
+    public void deleteBook(int bookId) {
+        bookDao.deleteBook(bookId);
     }
 }
