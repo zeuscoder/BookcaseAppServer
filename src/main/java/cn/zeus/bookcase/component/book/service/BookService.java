@@ -1,5 +1,6 @@
 package cn.zeus.bookcase.component.book.service;
 
+import cn.zeus.bookcase.component.book.constant.BookState;
 import cn.zeus.bookcase.component.book.dao.BookDao;
 import cn.zeus.bookcase.component.book.vo.BookInfoVo;
 import cn.zeus.bookcase.component.book.vo.req.BookReq;
@@ -64,5 +65,16 @@ public class BookService {
      */
     public void deleteBook(int bookId) {
         bookDao.deleteBook(bookId);
+    }
+
+    /**
+     * 批量修改书籍状态
+     *
+     * @param bookIds
+     * @param state
+     */
+    public void batchState(List<Integer> bookIds, String state) {
+        int bookState = BookState.getBookStateByEnName(state).getDbType();
+        bookDao.batchState(bookIds, bookState);
     }
 }

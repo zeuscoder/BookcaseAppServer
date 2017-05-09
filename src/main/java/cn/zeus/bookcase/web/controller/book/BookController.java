@@ -83,6 +83,18 @@ public class BookController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/batchState", method = RequestMethod.PUT)
+    public BaseResponse<String> batchState(
+            @RequestParam(value = "bookIds") List<Integer> bookIds,
+            @RequestParam(value = "state") String state) {
+        LOG.info("[批量修改状态] - 访问[PUT /batchState]接口");
+        BaseResponse<String> br = new BaseResponse<String>();
+        bookService.batchState(bookIds, state);
+        br.setMessage("批量修改成功");
+        return br;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "", method = RequestMethod.POST)
     public BaseResponse<String> saveBook(@RequestBody BookVo bookVo) {
         LOG.info("[添加书籍] - 访问[POST /book]接口");

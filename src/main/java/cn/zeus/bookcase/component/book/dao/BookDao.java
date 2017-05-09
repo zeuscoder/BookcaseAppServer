@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lvzimou on 2016/11/19.
@@ -67,5 +69,18 @@ public class BookDao {
      */
     public void deleteBook(int bookId) {
         sqlSession.update(NAMESPACE + "deleteBook", bookId);
+    }
+
+    /**
+     * 批量修改书籍状态
+     *
+     * @param bookIds
+     * @param state
+     */
+    public void batchState(List<Integer> bookIds, int state) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("bookIds", bookIds);
+        params.put("state", state);
+        sqlSession.update(NAMESPACE + "batchState", params);
     }
 }
