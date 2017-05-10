@@ -68,6 +68,16 @@ public class BookService {
     }
 
     /**
+     * 修改书籍状态
+     *
+     * @param bookId
+     */
+    public void setBookState(int bookId, String state) {
+        int bookState = BookState.getBookStateByEnName(state).getDbType();
+        bookDao.setState(bookId, bookState);
+    }
+
+    /**
      * 批量修改书籍状态
      *
      * @param bookIds

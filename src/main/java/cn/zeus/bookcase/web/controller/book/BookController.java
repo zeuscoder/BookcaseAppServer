@@ -83,6 +83,18 @@ public class BookController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/{bookId:\\d+}/state", method = RequestMethod.PUT)
+    public BaseResponse<String> setBookState(
+            @PathVariable("bookId") int bookId,
+            @RequestParam(value = "state") String state) {
+        LOG.info("[修改书籍状态] - 访问[PUT /book/" + bookId + "/state]接口");
+        BaseResponse<String> br = new BaseResponse<String>();
+        bookService.setBookState(bookId, state);
+        br.setMessage("修改成功");
+        return br;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/batchState", method = RequestMethod.PUT)
     public BaseResponse<String> batchState(
             @RequestParam(value = "bookIds") List<Integer> bookIds,

@@ -91,6 +91,14 @@
     </select>
 
     <!-- 批量修改书籍状态 -->
+    <select id="setState"
+            parameterType="java.util.Map">
+        update book
+        set state = #{state}
+        where book_id = #{bookId}
+    </select>
+
+    <!-- 批量修改书籍状态 -->
     <select id="batchState"
             parameterType="java.util.Map">
         update book

@@ -72,6 +72,19 @@ public class BookDao {
     }
 
     /**
+     * 修改书籍状态
+     *
+     * @param bookId
+     * @param state
+     */
+    public void setState(Integer bookId, int state) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("bookId", bookId);
+        params.put("state", state);
+        sqlSession.update(NAMESPACE + "setState", params);
+    }
+
+    /**
      * 批量修改书籍状态
      *
      * @param bookIds
