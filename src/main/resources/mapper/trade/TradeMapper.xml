@@ -2,12 +2,64 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.zeus.bookcase.component.trade.dao.TradeDao">
 
+    <sql id="tradeCommonFields">
+        trade_id as tradeId,
+        from_trader_id as fromTraderId,
+        from_trader_name as fromTraderName,
+        target_trader_id as targetTraderId,
+        target_trader_name as targetTraderName,
+        from_trader_book_id as fromTraderBookId,
+        from_trader_book_name as fromTraderBookName,
+        target_trader_book_id as targetTraderBookId,
+        target_trader_book_name as targetTraderBookName,
+        from_trader_remark as fromTraderRemark,
+        target_trader_remark as targetTraderRemark,
+        trade_start_date as tradeStartDate,
+        trade_end_date as tradeEndDate,
+        trade_days as tradeDays,
+        trade_condition as tradeCondition,
+        trade_deal_date as tradeDealDate,
+        remark
+    </sql>
+
+    <!-- 分页组件 -->
+    <sql id="pageInfoFilterSql">
+        <if test="pageOffset != null and pageSize != null">
+            LIMIT ${pageOffset},${pageSize}
+        </if>
+    </sql>
+
     <!-- 统计交易记录 -->
     <select id="countTrades"
-            resultType="int">
+            resultType="int"
+            parameterType="cn.zeus.bookcase.component.trade.vo.req.TradeReq">
         select
         count(*)
         from trade
+        <include refid="filterSql" />
     </select>
+
+    <!-- 查询交易列表 -->
+    <select id="selectTradesByParams"
+            resultType="cn.zeus.bookcase.component.trade.entity.Trade"
+            parameterType="cn.zeus.bookcase.component.trade.vo.req.TradeReq">
+        select
+        <include refid="tradeCommonFields" />
+        from trade
+        <include refid="filterSql" />
+        <include refid="pageInfoFilterSql" />
+    </select>
+
+    <!-- 过滤条件 -->
+    <sql id="filterSql">
+        <where>
+            <if test="dealStartDate!=null and dealStartDate!=''">
+                and trade_deal_date &gt;= #{dealStartDate}
+            </if>
+            <if test="dealEndDate!=null and dealEndDate!=''">
+                and trade_deal_date &lt;= #{dealEndDate}
+            </if>
+        </where>
+    </sql>
 
 </mapper>

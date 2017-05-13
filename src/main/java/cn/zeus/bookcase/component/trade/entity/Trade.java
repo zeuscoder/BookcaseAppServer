@@ -5,11 +5,11 @@ package cn.zeus.bookcase.component.trade.entity;
  */
 public class Trade {
 
-    private int id;
+    private int tradeId;
 
     private int fromTraderId;
 
-    private String fromTargetName;
+    private String fromTraderName;
 
     private int targetTraderId;
 
@@ -37,16 +37,18 @@ public class Trade {
 
     private String tradeDealDate;
 
+    private String remark;
+
     public Trade() {
 
     }
 
-    public int getId() {
-        return id;
+    public int getTradeId() {
+        return tradeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTradeId(int tradeId) {
+        this.tradeId = tradeId;
     }
 
     public int getFromTraderId() {
@@ -57,12 +59,12 @@ public class Trade {
         this.fromTraderId = fromTraderId;
     }
 
-    public String getFromTargetName() {
-        return fromTargetName;
+    public String getFromTraderName() {
+        return fromTraderName;
     }
 
-    public void setFromTargetName(String fromTargetName) {
-        this.fromTargetName = fromTargetName;
+    public void setFromTraderName(String fromTraderName) {
+        this.fromTraderName = fromTraderName;
     }
 
     public int getTargetTraderId() {
@@ -169,4 +171,11 @@ public class Trade {
         this.tradeDealDate = tradeDealDate;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }
